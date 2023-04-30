@@ -32,16 +32,14 @@ public class Radio {
     }
 
     public void prevNumberOfStation() {
-        if (currentNumberOfStation <= 9) {
+        if (currentNumberOfStation > 0) {
             currentNumberOfStation = currentNumberOfStation - 1;
         }
-    }
-
-    public void prevNineIfCurrentZero() {
         if (currentNumberOfStation == 0) {
             currentNumberOfStation = 9;
         }
     }
+
 
     public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume < 0) {
@@ -57,11 +55,17 @@ public class Radio {
         if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
+        if (currentVolume == 100) {
+            currentVolume = currentVolume;
+        }
     }
 
     public void QuieterVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
+        }
+        if (currentVolume == 0) {
+            currentVolume = currentVolume;
         }
     }
 }

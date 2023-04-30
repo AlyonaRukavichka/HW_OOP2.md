@@ -110,7 +110,7 @@ public class RadioTest {
         Radio radio = new Radio();
 
         radio.setCurrentNumberOfStation(0);
-        radio.prevNineIfCurrentZero();
+        radio.prevNumberOfStation();
 
         int expected = 9;
         int actual = radio.getCurrentNumberOfStation();
@@ -156,6 +156,19 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldSetIncreaseVolumeOneHundredIfCurrentVolumeOneHundred() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(100);
+        radio.increaseVolume();
+
+        int expected = 100;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetQuieterVolume() {
         Radio radio = new Radio();
 
@@ -163,6 +176,19 @@ public class RadioTest {
         radio.QuieterVolume();
 
         int expected = 29;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetQuieterVolumeEqualsZeroIfCurrentIsZero() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(0);
+        radio.QuieterVolume();
+
+        int expected = 0;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
