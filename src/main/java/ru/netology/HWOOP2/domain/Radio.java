@@ -2,6 +2,8 @@ package ru.netology.HWOOP2.domain;
 
 public class Radio {
     private int currentNumberOfStation;
+    private int minNumberOfStation = 0;
+    private int maxNumberOfStation = 9;
     private int currentVolume;
 
     public int getCurrentNumberOfStation() {
