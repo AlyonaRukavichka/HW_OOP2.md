@@ -2,7 +2,36 @@ package ru.netology.HWOOP2.domain;
 
 public class Radio {
     private int currentNumberOfStation;
+    private int minNumberOfStation;
+    private int maxNumberOfStation;
+    private int AmountStation;
     private int currentVolume;
+    private int minVolume = 0;
+    private int maxVolume = 100;
+
+    public Radio() {
+        this.maxNumberOfStation = 9;
+        this.minNumberOfStation = 0;
+        this.AmountStation = 10;
+    }
+
+    public Radio(int AmountStation) {
+        this.maxNumberOfStation = AmountStation - 1;
+    }
+
+    public int getAmountStation() {
+        return AmountStation;
+    }
+
+    public void setAmountStation(int newAmountStation) {
+        if (newAmountStation < minNumberOfStation) {
+            return;
+        }
+        if (newAmountStation > maxNumberOfStation + 1) {
+            return;
+        }
+        AmountStation = newAmountStation;
+    }
 
     public int getCurrentNumberOfStation() {
         return currentNumberOfStation;
@@ -13,30 +42,30 @@ public class Radio {
     }
 
     public void setCurrentNumberOfStation(int newCurrentNumberOfStation) {
-        if (newCurrentNumberOfStation < 0) {
+        if (newCurrentNumberOfStation < minNumberOfStation) {
             return;
         }
-        if (newCurrentNumberOfStation > 9) {
+        if (newCurrentNumberOfStation > maxNumberOfStation) {
             return;
         }
         currentNumberOfStation = newCurrentNumberOfStation;
     }
 
     public void nextNumberOfStation() {
-        if (currentNumberOfStation < 9) {
+        if (currentNumberOfStation < maxNumberOfStation) {
             currentNumberOfStation = currentNumberOfStation + 1;
         }
-        if (currentNumberOfStation == 9) {
-            currentNumberOfStation = 0;
+        if (currentNumberOfStation == maxNumberOfStation) {
+            currentNumberOfStation = minNumberOfStation;
         }
     }
 
     public void prevNumberOfStation() {
-        if (currentNumberOfStation > 0) {
+        if (currentNumberOfStation > minNumberOfStation) {
             currentNumberOfStation = currentNumberOfStation - 1;
         }
-        if (currentNumberOfStation == 0) {
-            currentNumberOfStation = 9;
+        if (currentNumberOfStation == minNumberOfStation) {
+            currentNumberOfStation = maxNumberOfStation;
         }
     }
 
