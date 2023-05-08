@@ -23,19 +23,17 @@ public class Radio {
     }
 
     public void nextNumberOfStation() {
-        if (currentNumberOfStation < 9) {
+        if (currentNumberOfStation != 9) {
             currentNumberOfStation = currentNumberOfStation + 1;
-        }
-        if (currentNumberOfStation == 9) {
+        } else {
             currentNumberOfStation = 0;
         }
     }
 
     public void prevNumberOfStation() {
-        if (currentNumberOfStation > 0) {
+        if (currentNumberOfStation != 0) {
             currentNumberOfStation = currentNumberOfStation - 1;
-        }
-        if (currentNumberOfStation == 0) {
+        } else {
             currentNumberOfStation = 9;
         }
     }
@@ -52,20 +50,18 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < 100) {
+        if (currentVolume != 100) {
             currentVolume = currentVolume + 1;
-        }
-        if (currentVolume == 100) {
-            currentVolume = currentVolume;
+        } else {
+            return;
         }
     }
 
-    public void QuieterVolume() {
-        if (currentVolume > 0) {
+    public void quieterVolume() {
+        if (currentVolume != 0) {
             currentVolume = currentVolume - 1;
-        }
-        if (currentVolume == 0) {
-            currentVolume = currentVolume;
+        } else {
+            return;
         }
     }
 }
